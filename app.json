@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Consumewise",
-    "slug": "consumewise",
+    "name": "NutriWise",
+    "slug": "nutriwise",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "come.ankittechie.nutriwise",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
