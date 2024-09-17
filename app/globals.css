@@ -1,3 +1,115 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Flex Utilities */
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-center;
+}
+
+
+
+
+
+/* Dark Mode Specific Styles */
+.dark .text-primary {
+  @apply text-seaGreen-dark;
+}
+
+.dark .text-secondary {
+  @apply text-bostonBlue-dark;
+}
+
+.dark .bg-primary {
+  @apply bg-seaGreen-dark;
+}
+
+.dark .bg-secondary {
+  @apply bg-bostonBlue-dark;
+}
+
+.dark .btn-primary {
+  @apply bg-seaGreen-dark text-white hover:bg-seaGreen-light;
+}
+
+.dark .btn-secondary {
+  @apply bg-bostonBlue-dark text-white hover:bg-bostonBlue-light;
+}
+
+/* Light Mode Specific Styles */
+.light .text-primary {
+  @apply text-seaGreen;
+}
+
+.light .text-secondary {
+  @apply text-bostonBlue;
+}
+
+.light .bg-primary {
+  @apply bg-seaGreen;
+}
+
+.light .bg-secondary {
+  @apply bg-bostonBlue;
+}
+
+.text-14 {
+  @apply text-[14px]  text-black dark:text-white;
+}
+
+/* Text-16 */
+.text-16 {
+  @apply text-[16px]  text-black dark:text-white;
+}
+
+/* Text-18 */
+.text-18 {
+  @apply text-[18px]  text-black dark:text-white;
+}
+
+/* Text-20 */
+.text-20 {
+  @apply text-[20px]  text-black dark:text-white;
+}
+
+/* Text-24 */
+.text-24 {
+  @apply text-[24px]  text-black dark:text-white;
+}
+
+/* Text-32 */
+.text-32 {
+  @apply text-[32px]  text-black dark:text-white;
+}
+
+/* Text-40 */
+.text-40 {
+  @apply text-[40px]  text-black dark:text-white;
+}
+
+/* Text-48 */
+.text-48 {
+  @apply text-[48px]  text-black dark:text-white;
+}
+
+/* Text-56 */
+.text-56 {
+  @apply text-[56px]  text-black dark:text-white;
+}
+
+/* Text-64 */
+.text-64 {
+  @apply text-[64px]  text-black dark:text-white;
+}
+
+.app-background {
+  @apply bg-[#F9FCF8] dark:bg-[#2D3A33];
+}

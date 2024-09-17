@@ -1,11 +1,26 @@
-import { Text, View } from "react-native";
+import Logo from "@/components/Logo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
+import { useEffect } from "react";
+import { View } from "react-native";
 
 const index = () => {
+  useEffect(() => {
+    const Open = async () => {
+      const isOpened = await AsyncStorage.getItem("isOpened");
+      if(isOpened){
+        router.replace("/home")
+      }
+      else{
+        router.replace("/welcome")
+      }
+    }
+    Open();
+  });
+
   return (
-    <View className="flex h-screen items-center justify-center">
-      <Text className="text-lg font-semibold text-red-400 dark:text-blue-300">
-        Hello
-      </Text>
+    <View className="flex h-screen items-center justify-center app-background">
+      <Logo />
     </View>
   );
 };
