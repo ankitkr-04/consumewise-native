@@ -14,7 +14,7 @@ const AuthLayout = () => {
           name="sign-up"
           options={{ title: "Sign Up", headerShown: false }}
         />
-        <StatusBar style="auto" />
+        <StatusBar backgroundColor="status-background" />
       </Stack>
     </>
   );
