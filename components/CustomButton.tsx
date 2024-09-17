@@ -18,7 +18,7 @@ const CustomButton: React.FC<ButtonProps> = ({ title, containerStyles, textStyle
             disabled={isLoading}
             className={` rounded-full min-h-[62px] justify-center items-center bg-green-400 dark:bg-green-400 ${containerStyles} ${isLoading ? 'opacity-50' : ''}`}
         >
-            <Text className={`text-18 ${textStyles}`}>{title}</Text>
+            <Text className={`text-[18px] ${textStyles}`}>{title}</Text>
         </TouchableOpacity>
     )
 }

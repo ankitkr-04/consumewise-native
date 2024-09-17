@@ -14,7 +14,6 @@ const welcome = () => {
     await AsyncStorage.setItem("isOpened", "true");
     setLoading(false);
     router.replace("/(tabs)");
-
   };
   return (
     <SafeAreaView className="flex-1 h-full ">
@@ -29,7 +28,9 @@ const welcome = () => {
             accessibilityLabel="Welcome Image"
             className="w-[80%] object-contain rounded-xl shadow-sm h-96 mt-8"
           />
-          <Text className="text-18 w-[75%] font-jetSemibold text-center mt-4">Transform Your Health with Every Step</Text>
+          <Text className="text-18 w-[75%] font-jetSemibold text-center mt-4">
+            Transform Your Health with Every Step
+          </Text>
         </View>
 
         <CustomButton
@@ -37,7 +38,7 @@ const welcome = () => {
           containerStyles="mx-4"
           handlePress={handlePress}
           isLoading={loading}
-          textStyles="font-sansBold"
+          textStyles="font-sansBold text-white dark:text-white"
         />
       </ScrollView>
 
