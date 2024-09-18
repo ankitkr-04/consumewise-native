@@ -1,10 +1,11 @@
 import { getCurrentUser } from "@/lib/appwrite";
+import { UserProps } from "@/types";
 import React, { createContext, useContext, useEffect } from "react";
 
 export interface GlobalProps {
   isLogged: boolean;
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
-  user: any;
+  user: UserProps | null;
   setUser: React.Dispatch<React.SetStateAction<any>>;
   loading: boolean;
 }

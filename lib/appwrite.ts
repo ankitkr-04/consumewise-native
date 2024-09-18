@@ -28,6 +28,7 @@ export const getCurrentUser = async () => {
       // console.log("User not logged in. Proceeding as guest.");
       return null;
     }
+    
 
     if (currAcc && currAcc.$id) {
       // console.log("Current User ID: ", currAcc.$id);
@@ -58,3 +59,13 @@ export const signIn = async (email: string, password: string) => {
     throw new Error("Failed to sign in");
   }
 };
+
+export const signOut = async () => {
+  try {
+    await account.deleteSession("current");
+    return true;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to sign out");
+  }
+}

@@ -1,5 +1,6 @@
 import FormInput from "@/components/FormInput";
 import Logo from "@/components/Logo";
+import OAuthButton from "@/components/OAuthButton";
 import TextSeparator from "@/components/ui/TextSeparator";
 import { icons } from "@/constants";
 import { useGlobalContext } from "@/context/GlobalProvider";
@@ -7,7 +8,7 @@ import useForm, { FormState } from "@/hooks/useForm";
 import { getCurrentUser, signIn } from "@/lib/appwrite";
 import { router } from "expo-router";
 import React from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 interface SignInFormState extends FormState {
@@ -81,27 +82,8 @@ const SignIn = () => {
           <TextSeparator space="py-6" label="Or continue with" />
           {/* OAUTH Links */}
           <View className="flex-row w-full gap-2">
-            <TouchableOpacity className="flex-1 border dark:border-lime-700 border-lime-100 flex-row justify-center items-center py-4 rounded-lg">
-              <Image
-                source={icons.google}
-                className="h-6 w-6 mr-2"
-                resizeMode="contain"
-              />
-              <Text className="dark:text-white/80 font-sansSemibold">
-                Google
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity className="flex-1 border dark:border-lime-700 border-lime-100 flex-row justify-center items-center py-3 rounded-lg">
-              <Image
-                source={icons.facebook}
-                className="h-6 w-6 mr-2"
-                resizeMode="contain"
-              />
-              <Text className=" dark:text-white/80 font-sansSemibold">
-                Facebook
-              </Text>
-            </TouchableOpacity>
+            <OAuthButton icon={icons.google} label="Google" />
+            <OAuthButton icon={icons.facebook} label="Facebook" />
           </View>
         </View>
 

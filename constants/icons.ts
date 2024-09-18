@@ -11,6 +11,9 @@ import password from "../assets/static/icons/password.png";
 import profile from "../assets/static/icons/profile.png";
 import scan from "../assets/static/icons/scan.png";
 import search from "../assets/static/icons/search.png";
+import settings from "../assets/static/icons/settings.png";
+import user from "../assets/static/icons/user.png";
+import logout from "../assets/static/icons/logout.png";
 export default {
   logo,
   home,
@@ -24,5 +27,8 @@ export default {
   email,
   password,
   google,
+  settings,
   facebook,
+  logout,
+  user
 };
