@@ -1,8 +1,8 @@
 import { icons } from "@/constants";
 import { Tabs } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Image, View } from "react-native";
-
 interface TabItemProps {
   icon: number;
   label: string;
@@ -120,6 +120,7 @@ const HomeLayout = () => {
           ),
         }}
       />
+     
     </Tabs>
   );
 };

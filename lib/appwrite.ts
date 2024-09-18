@@ -1,5 +1,11 @@
 import { appwriteConfig } from "@/config";
-import { Account, Avatars, Client, Databases } from "react-native-appwrite";
+import {
+  Account,
+  Avatars,
+  Client,
+  Databases,
+  Query,
+} from "react-native-appwrite";
 
 const { endpoint, platform, projectId, databaseId, userCollectionId } =
   appwriteConfig;
@@ -24,17 +30,17 @@ export const getCurrentUser = async () => {
     }
 
     if (currAcc && currAcc.$id) {
-      const user = await db.getDocument(
-        databaseId,
-        userCollectionId,
-        currAcc.$id
-      );
+      // console.log("Current User ID: ", currAcc.$id);
+      const user = await db.listDocuments(databaseId, userCollectionId, [
+        Query.equal("userId", currAcc.$id),
+      ]);
 
       if (!user) {
         throw new Error("No user found in the database");
       }
+      // console.log("Current User: ", user.documents[0]);
 
-      return user;
+      return user.documents[0];
     }
   } catch (error) {
     console.error(error);

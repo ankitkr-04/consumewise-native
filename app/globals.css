@@ -15,10 +15,6 @@
   @apply flex justify-start items-center;
 }
 
-
-
-
-
 /* Dark Mode Specific Styles */
 .dark .text-primary {
   @apply text-seaGreen-dark;
@@ -111,5 +107,5 @@
 }
 
 .app-background {
-  @apply bg-[#E8F4E7] dark:bg-[#2A3B30];
+  @apply bg-[#E8F4E7] dark:bg-[#0f0f0f];
 }
