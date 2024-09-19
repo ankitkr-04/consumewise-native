@@ -20,6 +20,8 @@ const useForm = <T extends FormState>({
 
   const handleChange = (field: keyof T, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    // console.log(field, value);
+    
   };
 
   const handleSubmit = async () => {

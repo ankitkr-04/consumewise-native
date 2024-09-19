@@ -1,9 +1,11 @@
 import { appwriteConfig } from "@/config";
+import { SignUpProps } from "@/types";
 import {
   Account,
   Avatars,
   Client,
   Databases,
+  ID,
   Query,
 } from "react-native-appwrite";
 
@@ -16,7 +18,7 @@ const client = new Client()
   .setPlatform(platform);
 
 const account = new Account(client);
-const avatar = new Avatars(client);
+const avatarCreator = new Avatars(client);
 const db = new Databases(client);
 
 export const getCurrentUser = async () => {
@@ -28,7 +30,6 @@ export const getCurrentUser = async () => {
       // console.log("User not logged in. Proceeding as guest.");
       return null;
     }
-    
 
     if (currAcc && currAcc.$id) {
       // console.log("Current User ID: ", currAcc.$id);
@@ -46,6 +47,49 @@ export const getCurrentUser = async () => {
   } catch (error) {
     console.error(error);
     throw new Error("Failed to get current user");
+  }
+};
+
+export const signUp = async ({
+  name,
+  age,
+  activityLevel,
+  email,
+  gender,
+  height,
+  password,
+  weight,
+  avatar,
+}: SignUpProps) => {
+  try {
+    const newAccount = await account.create(ID.unique(), email, password, name);
+
+    if (!newAccount) throw new Error("Account creation Failed");
+    const avatarUrl = avatar ? avatar : avatarCreator.getInitials(name);
+
+    await signIn(email, password);
+
+    const newUser = await db.createDocument(
+      databaseId,
+      userCollectionId,
+      ID.unique(),
+      {
+        userId: newAccount.$id,
+        name,
+        age : parseInt(age),
+        gender,
+        height : parseFloat(height),
+        weight : parseFloat(weight),
+        activityLevel,
+        email,
+        avatar: avatarUrl,
+      }
+    );
+
+    return newUser;
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 };
 
@@ -68,4 +112,4 @@ export const signOut = async () => {
     console.error(error);
     throw new Error("Failed to sign out");
   }
-}
+};

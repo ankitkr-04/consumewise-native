@@ -16,10 +16,10 @@ const Profile = () => {
     setUser(null);
     setIsLogged(false);
 
-    router.replace("/profile");
+    router.replace("/home");
   };
   const handleSignIn = () => {
-    router.push("/home");
+    router.push("/sign-in");
   };
 
   if (loading)
@@ -49,12 +49,12 @@ const Profile = () => {
 
           <View className="my-4 items-start mx-auto w-[90%] flex ">
             <View
-              className={`bg-gray-300 dark:bg-gray-700 rounded-full p-2 -scroll-my-3 ml-2  `}
+              className={` rounded-full ${user?.avatar ? "bg-white" : "p-2 bg-gray-300 dark:bg-gray-700"} -scroll-my-3 ml-2  `}
             >
               <Image
-                source={user?.avatar ? user?.avatar : icons.user}
-                className="w-20 h-20 "
-                tintColor={"#777"}
+                source={user?.avatar ? { uri: user?.avatar } : icons.user}
+                className="w-20 h-20 rounded-full "
+                tintColor={user?.avatar ? "" : "#777"}
               />
             </View>
 

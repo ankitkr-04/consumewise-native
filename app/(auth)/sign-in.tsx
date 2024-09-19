@@ -74,9 +74,10 @@ const SignIn = () => {
           <TouchableOpacity
             onPress={handleSubmit}
             className="bg-lime-500 dark:bg-lime-600 py-5 rounded-lg"
+            disabled={isSubmitting}
           >
             <Text className="text-center text-white/90 text-xl font-sansBold tracking-wider">
-              Login
+              {isSubmitting ? "Loading..." : "Login"}
             </Text>
           </TouchableOpacity>
           <TextSeparator space="py-6" label="Or continue with" />
@@ -90,7 +91,7 @@ const SignIn = () => {
         {/* Sign-up Link */}
         <View className="mt-8 flex-row justify-center items-center">
           <Text className="text-gray-500">Not a member? </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push("/sign-up")}>
             <Text className="text-lime-500 dark:text-lime-300 font-jetBold mx-1">
               Register
             </Text>

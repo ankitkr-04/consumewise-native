@@ -14,3 +14,15 @@ export interface UserProps {
   updatedAt: string;
   avatar: string;
 }
+
+export interface SignUpProps {
+  email: string;
+  name: string;
+  password: string;
+  age: string;
+  weight: string;
+  gender: string;
+  height: string;
+  activityLevel: string;
+  avatar: string
+}
